@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dummy_data.dart';
-import 'package:recipe_book/category_item.dart';
+import '../data/dummy_data.dart';
+import 'package:recipe_book/widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   // const CategoriesScreen({ Key? key }) : super(key: key);

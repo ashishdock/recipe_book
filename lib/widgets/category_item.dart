@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_book/category_meals_screen.dart';
+import 'package:recipe_book/screens/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   // const CategoryItem({ Key? key }) : super(key: key);

@@ -25,7 +25,7 @@ class Meal {
   final bool isVegan;
   final bool isVegetarian;
 
-  Meal(
+  const Meal(
       {this.id,
       this.categories,
       this.title,
