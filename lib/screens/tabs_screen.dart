@@ -10,6 +10,18 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
+  final List<Map<String, Object>> _pages = [
+    {'page': CategoriesScreen(), 'title': 'Categories'},
+    {'page': FavoriteScreen(), 'title': 'Your Favorite'},
+  ];
+  int _selectedPageIndex = 0;
+
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -17,27 +29,54 @@ class _TabsScreenState extends State<TabsScreen> {
       // initialIndex: 1,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Meals'),
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(Icons.category),
-                text: 'Categories',
-              ),
-              Tab(
-                icon: Icon(Icons.star),
-                text: 'Favorites',
-              )
-            ],
-          ),
+          title: Text(_pages[_selectedPageIndex]['title']),
         ),
-        body: TabBarView(
-          children: [
-            CategoriesScreen(),
-            FavoriteScreen(),
+        body: _pages[_selectedPageIndex]['page'],
+        bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Theme.of(context).accentColor,
+          onTap: _selectPage,
+          backgroundColor: Theme.of(context).primaryColor,
+          currentIndex: _selectedPageIndex,
+          // selectedFontSize: ,
+          // unselectedFontSize: ,
+          // type: BottomNavigationBarType.shifting,
+          items: [
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: Icon(Icons.category),
+              title: Text('Categories'),
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: Icon(Icons.star),
+              title: Text('Favorites'),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+// bottom: TabBar(
+//             tabs: [
+//               Tab(
+//                 icon: Icon(Icons.category),
+//                 text: 'Categories',
+//               ),
+//               Tab(
+//                 icon: Icon(Icons.star),
+//                 text: 'Favorites',
+//               )
+//             ],
+//           ),
+
+
+//            TabBarView(
+//           children: [
+//             CategoriesScreen(),
+//             FavoriteScreen(),
+//           ],
+//         ),
