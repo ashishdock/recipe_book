@@ -72,24 +72,30 @@ class MealDetailScreen extends StatelessWidget {
               ),
             ),
             buildSectionTitle(context, 'Steps'),
-            buildContainer(ListView.builder(
-              itemBuilder: (context, index) => Column(
-                children: [
-                  ListTile(
-                    leading: CircleAvatar(
-                      child: Text('# ${(index + 1)}'),
+            buildContainer(
+              ListView.builder(
+                itemBuilder: (context, index) => Column(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        child: Text('# ${(index + 1)}'),
+                      ),
+                      title: Text(
+                        selectedMeal.steps[index],
+                      ),
                     ),
-                    title: Text(
-                      selectedMeal.steps[index],
-                    ),
-                  ),
-                  Divider(),
-                ],
+                    Divider(),
+                  ],
+                ),
+                itemCount: selectedMeal.steps.length,
               ),
-              itemCount: selectedMeal.steps.length,
-            ))
+            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.delete),
+        onPressed: () => Navigator.pop(context, mealId),
       ),
     );
   }
