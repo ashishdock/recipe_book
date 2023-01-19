@@ -59,9 +59,10 @@ class MealItem extends StatelessWidget {
       MealDetailScreen.routeName,
       arguments: id,
     )
-        .then((value) {
-      if (value != null) {
-        removeItem(value);
+        .then((mealId) {
+      // passed from pop as argument
+      if (mealId != null) {
+        removeItem(mealId);
       }
     });
   }

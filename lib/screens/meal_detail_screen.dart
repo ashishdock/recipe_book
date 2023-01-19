@@ -95,7 +95,8 @@ class MealDetailScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.delete),
-        onPressed: () => Navigator.pop(context, mealId),
+        onPressed: () => Navigator.pop(context,
+            mealId), // This data (mealId) is passed to 'then' function which passes it to the function inside it.
       ),
     );
   }
